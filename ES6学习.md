@@ -13,6 +13,8 @@ if (true) {
   tmp = 'abc'; // ReferenceError
   let tmp;
 }
+
+let 和 const 定义的变量和常量 不能添加到 window 中
 ```
 
 
@@ -29,6 +31,11 @@ str.startsWith('qwe') //true
 str.endsWith('asd') //true
 重复拼接某字符串
 str.repeat(3) // 'qwe asdqwe asdqwe asd'
+在字符串的前面添加前缀, 返回添加之后的字符串
+str.padStart(拼接之后的总长度, 要在前面拼接的字符串)
+eg: '1'.padStart(2, '0') // '01'
+在字符串的后面添加前缀, 返回添加之后的字符串
+str.padEnd(拼接之后的总长度, 要在后面拼接的字符串)
 ```
 
 
@@ -150,9 +157,11 @@ var str = `
 
 
 
-### 函数
+### 箭头函数
 
 ```
+箭头函数，本质上，就是一个匿名函数
+
 函数支持默认值
 function add(x = 10, y = 20) {
   console.log(x, y)
@@ -173,7 +182,7 @@ var app = (x, y) => {return x + y}
 
 函数在对象中的简写
 {函数名 ([参数]) {函数体} }
-例 : {add (x, y) { return x + y}}
+例 : {add(x, y) {return x + y}}
 
 对象名在对象中的简写
 当 键 和 值 名相同时可以只用键声明
@@ -194,6 +203,8 @@ for (let i = 0; i < 3; i++) {
 // abc
 // abc
 ~~~
+
+
 
 ### 指数运算符
 

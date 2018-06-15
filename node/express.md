@@ -7,17 +7,22 @@
 #### 单项目安装
 
 ```shell
+# 新版简介语法
+npm i express
+# 标准语法
 npm install --save express
 ```
 
 #### 官方样例语法(es6)
 
 ```javascript
+// 导入 express 模块
 const express = require('express')
+// 初始化 express 模块, 并接收导出的api
 const app = express()
-
+// 路由部分
 app.get('/', (req, res) => res.send('Hello World!'))
-
+// 监听端口, 一般为3000, 如果冲突可以手动改变端口号
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 ```
 
@@ -32,31 +37,29 @@ app.listen('3000', function(){console.log('link success')})
 
 ### 常用API
 
-~~~
+~~~js
+// 接收 get 请求发送的数据
 req.query
-req.url
-res.send
-res.json
-res.write
-res.end
+// 发送一段信息, 并结束当前代码的执行
+res.send('msg')
+// 重定向到指定地址
+res.redirect(url)
 ~~~
 
-#### 基本路由
+#### jQuery表单序列化
 
-##### 现阶段只有 ajax 表单能够以 post 形式发送数据
-
-#### JQ表单序列化
-
+```js
+form表单.serialize() // name=zhangsan&sex=1&age=20
+form表单.serializeArray() // 数组对象  json格式
 ```
-form表单.serialize() //name=zhangsan&sex=1&age=20
-form表单.serializeArray() //数组对象  json格式
-```
+
+####基本路由
 
 get:
 
 ```javascript
 // 当你以 GET 方法请求 / 的时候，执行对应的处理函数
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 ```
@@ -65,16 +68,46 @@ post:
 
 ```javascript
 // 当你以 POST 方法请求 / 的时候，指定对应的处理函数
-app.post('/', function (req, res) {
+app.post('/', (req, res) => {
   res.send('Got a POST request')
+})
+```
+
+all:
+
+```js
+// 不管以什么方式请求 / , 都会触发函数
+app.all('/', (req, res) => {
+  res.send('针对/路由相应所有请求')
+})
+```
+
+####路由中间件
+
+use:
+
+```js
+// 在代码执行过程中, 执行一段不阻塞当前程序执行的代码, 并可能会给 req 或者 res 添加附加的功能
+app.use('')
+// 如 body-parser 模块会给 res 添加一个 body 属性用于获取处理好的 post 传输的数据
+```
+
+all:
+
+```js
+// 不管以什么方式请求的当前 url, 都会触发函数
+app.all('/', (req, res, next) => {
+  res.send('针对/路由相应所有请求')
+  // 使其不阻塞当前的请求, 让代码继续向下执行
+  next()
 })
 ```
 
 #### 静态服务(加载可访问静态资源)
 
 ```javascript
-app.use('url', express.static('文件夹路径'))
-样例 : 当请求 /public 时 加载文件夹中的文件
+app.use(['虚拟路径'], express.static('文件夹路径'))
+样例 : 当请求以 /public 开头的url时, 加载public文件夹中的文件
 app.use('/public', express.static('./public'))
 ```
 
@@ -86,14 +119,16 @@ app.use('/public', express.static('./public'))
 安装：
 
 ```shell
-npm install --save art-template
-npm install --save express-art-template
+# 注意: 两个都要安装
+npm i art-template
+# 基于 express 的模板引擎
+npm i express-art-template
 ```
 
 配置：
 
 ```javascript
-// 第一个参数用来配置视图的后缀名，这里是 art ，则你存储在 views 目录中的模板文件必须是 xxx.art
+// 第一个参数用来配置视图文件的后缀名，默认是 .art ，则你存储在 views 目录中的模板文件必须是 xxx.art
 // app.engine('art', require('express-art-template'))
 
 // 为了使用html文件 这里把 art 改为 html
@@ -103,11 +138,10 @@ app.engine('html', require('express-art-template'))
 使用：
 
 ```javascript
-app.get('/', function (req, res) {
+// 导入模板引擎模块后, 会给 res 添加一个 render 方法
+app.get('/', (req, res) => {
   // express 默认会去项目中的 views 目录找 index.html
-  res.render('index.html', {
-    模板对象
-  })
+  res.render('index.html', [模板对象数据])
 })
 ```
 
@@ -118,6 +152,22 @@ app.get('/', function (req, res) {
 app.set('views', 目录路径)
 ```
 
+设置参数:
+
+```js
+// 可以将模块和自定义的数据传入模板中使用
+app.set('view options', {
+  imports: {moment, getUserInfo () {
+    return global.userInfo
+  }}
+})
+
+// 在模板中, 使用 $imports 就可以调用模块和自定义的数据
+eg: {{$imports.moment.format(Date.now(), 'YYYY-MM-DD HH:mm:ss')}}
+```
+
+**特殊性: template语法在视图 html 文件中书写时, `直接使用即可`不需要 script 标签包裹**
+
 ### 模板继承
 
 ```
@@ -126,22 +176,23 @@ app.set('views', 目录路径)
 以下文件一般放在views文件夹中  
 文件夹前加 _ 主要是为了区分导入模板文件和html模板文件 
 简洁语法(标准语法)
-//导入主模板 (主模板一般放在 _layout 文件家中)
-{{extend 'layout.html' }}
+导入主模板 (主模板一般放在 _layout 文件夹中)
+注意文件路径问题
+{{extend 'layout.html'}}
 主模板中可以使用以下语句进行挖坑
-{{block '名字' }}
-{{/block }}
+名字用于识别当前坑
+{{block '名字'}}{{/block}}
 在引用主模板的文件中可以使用以上语句进行填坑
 导入子模板 一般为公用的头部 尾部 侧边栏等 (子模板一般放在 _parts 文件夹中)
-{{include '模板名' }}
+{{include '子模板名' }}
 第二种语法 跟使用普通模板时一样 在模板文件中 挖坑 data为模板对象数据
-{{include '模板名' data}}
+{{include '子模板名' data}}
 
 原生语法(不建议使用)
-<%extend('./layout.art') %>
-<%block('head', function(){ %> ... <% }) %>
-<%include('./header.art') %>
-<%include('./header.art', data) %>
+<%extend('./layout.art')%>
+<%block('head', function(){ %> ... <% })%>
+<%include('./header.art')%>
+<%include('./header.art', data)%>
 
 样例
 ==============================================================================
@@ -200,7 +251,7 @@ index.html
 Express 内置了一个 API，可以直接通过 `req.query` 来获取
 
 ```javascript
-req.query 直接以对象的形式返回获取到的 {'name':'wang','age':18}
+req.query 直接以对象的形式返回获取到的数据 {'name':'wang','age':18}
 ```
 
 ### 在 Express 获取表单 POST 请求体数据
@@ -210,14 +261,14 @@ req.query 直接以对象的形式返回获取到的 {'name':'wang','age':18}
 安装：
 
 ```shell
-npm install --save body-parser
+npm i body-parser
 ```
 
 配置：
 
 ```javascript
 var express = require('express')
-// 0. 引包
+// 引包
 var bodyParser = require('body-parser')
 
 var app = express()
@@ -225,6 +276,7 @@ var app = express()
 // 配置 body-parser
 // 只要加入这个配置，则在 req 请求对象上会多出来一个属性：body
 // 也就是说你就可以直接通过 req.body 来获取表单 POST 请求体数据了
+// 使用中间件针对普通 post 和 json 进行相应的处理
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
@@ -235,11 +287,11 @@ app.use(bodyParser.json())
 
 ```javascript
 app.use(function (req, res) {
-  //设置响应头信息 普通数据传输时不需要设置响应头信息
+  // 设置响应头信息 普通数据传输时不需要设置响应头信息
   res.setHeader('Content-Type', 'text/plain')
   // 可以通过 req.body 来获取表单 POST 请求体数据
-  //为对象的形式  {'name':'wang','age':18}
-  res.end(req.body)
+  // 获取的数据为对象的形式  {'name':'wang','age':18}
+  res.send(req.body)
 })
 ```
 
@@ -250,7 +302,7 @@ app.use(function (req, res) {
 安装：
 
 ```shell
-npm install express-session
+npm i express-session
 ```
 
 配置：
@@ -262,8 +314,11 @@ app.use(session({
   // 配置加密字符串，它会在原有加密基础之上和这个字符串拼起来去加密(内部自动完成不需要手动处理)
   // 目的是为了增加安全性，防止客户端恶意伪造
   secret: 'itcast',
+  // 重置 session 的生存周期(只适用于 session 设置生命周期的情况下)
+  // 例如: 生命周期为10分钟, 5分之后再次访问, 就会重置回10分钟
   resave: false,
-  saveUninitialized: false // 无论你是否使用 Session ，我都默认直接给你分配一把钥匙
+  // 无论你是否使用 Session ，我都默认直接给你分配一把钥匙
+  saveUninitialized: true 
 }))
 ```
 
@@ -275,19 +330,25 @@ req.session.foo = 'bar'
 
 // 获取 Session 数据
 req.session.foo
+
+//删除指定 Session 数据
+req.session.foo = null
+
+//删除全部 Session 数据
+req.session = null
 ```
 
 提示：默认 Session 数据是内存存储的，服务器一旦重启就会丢失，真正的生产环境会把 Session 进行持久化存储。
 
 ###express中间件
 
-![6eb222dcc5](../../../日常视频学习文件/node.js第七天授课代码/docs/media/6eb222dcc5.jpg)
+![6eb222dcc5](./media/middleware.jpg)
 
-中间件的本质就是一个请求处理方法，我们把用户从请求到响应的整个过程分发到多个中间件中去处理，这样做的目的是提高代码的灵活性，动态可扩展的。
+中间件的本质就是一个请求处理方法，我们把用户从请求到响应的整个过程分发到多个中间件中去处理，就如上图中污水处理的每一个过程, 这样做的目的是提高代码的灵活性，动态可扩展的。
 
 - 同一个请求所经过的中间件都是同一个请求对象和响应对象
 
-####中间件原理
+####中间件原理 
 
 ```
 中间件：处理请求的，本质就是个函数
@@ -412,6 +473,10 @@ app.use(function (err, req, res, next) {
 - [response-time](http://expressjs.com/en/resources/middleware/response-time.html)
 - [serve-static](http://expressjs.com/en/resources/middleware/serve-static.html)
 - [session](http://expressjs.com/en/resources/middleware/session.html)
+
+## 插件
+
+markdown文件转html文件  marked
 
 ## CRUD 案例
 

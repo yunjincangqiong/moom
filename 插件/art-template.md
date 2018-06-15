@@ -16,6 +16,8 @@
 
 ## 原生语法
 
+**文件以 .native 结尾, 必须使用原生语法** 
+
 类似于 html标签格式 加原生 js语法, 可以写在模板定义语句中的任何位置
 
 + 语句用 <% js语句 %> 包含
@@ -41,6 +43,7 @@
     </div>
   <% } %>
 </script>
+
 <!-- js代码部分 -->
 <script>
   // 使用格式: template(模板id,{自定义数据}); 返回 html 代码
@@ -58,13 +61,28 @@
 
 ```html
 <script type="text/template" id="test">
+// 默认有两个参数 $value 和 $index, 分别为data遍历的值 和 每个值的索引
+{{each data}}
+<div>{{$value.name}}<//div>
+{{/each}}
+</script>
+
+<script type="text/template" id="test">
 // 遍历数组  v: 为值 i: 为索引
 {{each data as v i}}
 // 如果数据中存在特殊符号 < > / 等, 前面加一个 # 号不让其转义正常显示数组
 <img src="{{#v.img}}" src="图片">
 {{/each}}
 </script>
+
+{{if 判断条件}}
+代码
+{{else}}
+代码
+{{/if}}
 ```
 
+## 通用
 
+模板引擎可以接收对象或者数组, 模板引擎默认提供了 \$data 来接收传入的数据, \$value 和 \$index 来作为遍历数组的值/键 和 索引/值
 
