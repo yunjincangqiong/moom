@@ -198,10 +198,10 @@ var arr = new Array(5);
 + .splice(start, deletecount, item1, item2...)
   + start :指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从-1计数）
   + deletecount(可选) : 整数，表示要移除的数组元素的个数。
-             * 如果 deleteCount 是 0，则不移除元素。这种情况下，至少应添加一个新元素。
-             * 如果 deleteCount 大于start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。
-             * 如果deleteCount被省略，则其相当于(arr.length - start)。也就是相当于包含start位置及其后的所有数据
-           + items(可选) : 要添加进数组的元素,从start 位置开始。如果不指定，则 splice() 将只删除数组元素。
+           * 如果 deleteCount 是 0，则不移除元素。这种情况下，至少应添加一个新元素。
+           * 如果 deleteCount 大于start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。
+           * 如果deleteCount被省略，则其相当于(arr.length - start)。也就是相当于包含start位置及其后的所有数据
+         + items(可选) : 要添加进数组的元素,从start 位置开始。如果不指定，则 splice() 将只删除数组元素。
 
 ##### reverse()
 
@@ -723,3 +723,19 @@ Math.pow(num, n)/Math.sqrt(num, n)    // 指数次幂/平方根
 // 公式: 返回从x到y之间的随机数(y > x)
 Math.random() * (y - x) + x           
 ```
+
+
+
+###常用字符实体
+
+```
+&yen;           ¥ 人民币符号
+&nbsp;          空格
+&lt;            <
+&gt;            >
+&reg;           ® 注册商标
+&copy;          ® 防伪标识
+&amp;           &
+&quot;          "
+```
+

@@ -146,7 +146,8 @@ await 关键字: 必须配合 async 进行使用; 也就是说，await 只能用
 ```js
 // async 和 await 基本使用
 async () => {
-  const res = await Promise实例
+  // 用 catch 捕获报错信息对象, 并返回
+  const res = await Promise实例.catch(err) {err => err}
   return res
 }
 ```

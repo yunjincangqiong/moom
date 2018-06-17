@@ -10,9 +10,9 @@
 
 本质上就是一个使用数据库服务器软件（Server）提供的服务的数据库客户端（Client）。
 
-![mysql客户端](media/mysql-1.png)
+![mysql客户端](./media/mysql-1.png)
 
-![mysql客户端](media/mysql-client.png)
+![mysql客户端](./media/mysql-client.png)
 
 ##### 命令行工具
 

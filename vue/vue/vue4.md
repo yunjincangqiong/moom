@@ -246,9 +246,18 @@
 
    好处: 减少一次 http 请求, 增加访问速度
 
-   ```json
+   ```js
    { test: /\.(jpg|png|gif|bmp)$/, use: 'url-loader' }
    ```
+
+3. 新增一个 rules 规则来 处理 字体 文件：
+
+   ```js
+   { test: /\.(eot|ttf|woff|woff2|svg)$/, use: 'url-loader' }
+   ```
+
+   ​
+
 
 
 
@@ -276,7 +285,7 @@
    { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }
    ```
 
-4. 在项目根目录中，创建 `.babelrc` 配置文件并写入以下内容:
+4. 在项目根目录中，创建 `.babelrc` json文件配置文件并写入以下内容:
 
    ```json
    {
