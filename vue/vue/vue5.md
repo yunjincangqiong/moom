@@ -445,6 +445,8 @@ eg: 子组件向父组件传值
 
 2. 既然 render 函数会替换到 el 区域内的所有代码，也会让 template 属性失效；因此，在删减版的 vue 包中，new 出来的 Vue 实例对象，不允许 挂载 data 属性和 template 属性(会报错)！
 
+3. 在render函数形参列表中，有一个 createElement 形参，这个 createElement，也是一个 方法，作用是：根据给定的组件，把给定的组件覆盖并渲染到 el 区域
+
    ```js
    // 导入 Vue 模块
    import Vue from 'Vue'
