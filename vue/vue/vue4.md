@@ -297,6 +297,32 @@
 
 
 
+##在webpack中使用bootstrap
+
+由于其依赖 jQuery, 所以需要先引入并配置jQuery
+
+在 webpack.config.js 中, 导入 webpack, 并配置jQuery, 在添加到 plugins 中
+
+```js
+const Webpack from 'webpack'
+const jquweyPlugin = new Webpack.ProvidePlugin({
+  $: "jquery",
+  jQuery: "jquery"
+})
+module.exports = {
+  plugins: [其他插件配置, jquweyPlugin]
+}
+```
+
+在 index.js 中引入 bootstrap 即可
+
+```js
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.js.css'
+```
+
+
+
 ##样例完整的 webpack.config.js 文件配置
 
 ```js
