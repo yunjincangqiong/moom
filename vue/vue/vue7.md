@@ -36,7 +36,7 @@
 <!-- 带插槽的子组件 -->
 <template>
   <div>
-    <slot title="game" text="hello" :msg="msg"></slot>
+    <slot title="game" data-text="hello" :msg="msg"></slot>
   </div>
 </template>
 <script>
@@ -201,6 +201,7 @@ $ npm run dev                     // 一键运行项目
 
 
 
+
 ## ESLint 语法检查规范
 
 1. 声明但是未使用的变量或常量会报错
@@ -209,6 +210,8 @@ $ npm run dev                     // 一键运行项目
 4. 多余的分号，不允许
 5. 字符串要使用单引号，不能使用双引号
 6. 在方法名和形参列表的小括号之间，必须有一个空格
+7. 每个文件最后都要有一个空行
+
 
 
 
@@ -240,7 +243,9 @@ $ npm run dev                     // 一键运行项目
 
 
 
+
 ## 将项目源码托管到oschina中
+
 [码云官网](https://gitee.com/)
 1. 点击头像 -> 修改资料 -> SSH公钥 [如何生成SSH公钥](http://git.mydoc.io/?t=154712)
 2. 创建自己的空仓储，使用 `git config --global user.name "用户名"` 和 `git config --global user.email ***@**.com` 来全局配置提交时用户的名称和邮箱
@@ -264,4 +269,12 @@ $ npm run dev                     // 一键运行项目
 6. `git add .` 添加到暂存区
 7. `git commit -m '消息'` 提交到本地存储中
 
+
+
+
+## 装less-loader时装其依赖less
+
+```cmd
+npm i less-loader less -D
+```
 

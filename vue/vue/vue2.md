@@ -27,10 +27,6 @@
 
 
 
-
-
-
-
 ## 2. `Vue实例.$set()` 动态添加数据绑定
 
 + 语法：[Vue实例.$set( target, key, value )](https://cn.vuejs.org/v2/api/#Vue-set)
@@ -74,7 +70,10 @@ new Vue({
 
 注意: 在没有指定 el 或 $mount属性的时候, 单独使用 template 属性不会起作用
 
+
+
 ## 3. 过滤器
+
 + 概念：定义一个用于处理数据的特殊函数，**可用于一些常见的数据格式化**。
 + 过滤器`只可以`用在两个地方：**mustache 插值表达式 和 v-bind 指令中**。
 + 过滤器会把管道符左边的数据进行处理, 返回处理之后的数据
@@ -138,6 +137,8 @@ var vm = new Vue({
      <h2>{{num | add0 | add1}}</h2>
      ```
 
+
+
 ## 4. [vue实例的生命周期](https://cn.vuejs.org/v2/guide/instance.html#实例生命周期)
 
 ### 4.1 什么是生命周期（每个实例的一辈子）
@@ -170,24 +171,17 @@ var vm = new Vue({
 ![Vue生命周期](./media/Vue生命周期.png)
 
 
+
 ## 5. [axios 实现数据接口请求](https://www.npmjs.com/package/axios)
+
 1. `axios`发起请求；只支持`get`和`post`请求，无法发起`JSONP`请求; 如果涉及到 JSONP请求或者跨域请求，可以让后端启用 `cors` 跨域资源共享即可；
+2. 在Vue中，可以使用`vue-resource`或`axios`发起数据请求
 
 
-1. 在Vue中，可以使用`vue-resource`或`axios`发起数据请求
-   + `vue-resource` 支持 get, post, jsonp请求【官方不推荐使用这个包了！】
-   + 历史原因: 维护几个库的压力太大, 又发现了axios 这个好用的替代库, 所以就放弃维护了
-2. 用于测试的URL请求资源地址：
++ `vue-resource` 支持 get, post, jsonp请求【官方不推荐使用这个包了！】
++ 历史原因: 维护几个库的压力太大, 又发现了axios 这个好用的替代库, 所以就放弃维护了
 
-
-```
-get 请求地址：  http://www.liulongbin.top:3005/api/getlunbo
-post请求地址：  http://www.liulongbin.top:3005/api/post
-```
-1. 使用 `axios.get()` 和 `axios.post()` 发起请求
-2. 使用拦截器实现 loading 效果【拓展 - 了解即可】
-3. 使用 async 和 await 结合 axios 发起 Ajax 请求
-
+使用方法
 
 axios.get('请求的URL地址')
 
@@ -204,47 +198,6 @@ this.$http.get(url).then((res) => {
   // axios 提供的固定的结构, 以下代码就可以获取后台返回的数据
   res.data.message
 })
-```
-
-
-
-## 6. 品牌管理案例
-
-### 展示品牌列表
-
-### 添加品牌数据
-
-### 删除品牌数据
-
-### 根据品牌名称筛选
-
-+ 第一种实现方式
-  + 借助于 自定义的 `过滤函数` 实现
-+ 第二种实现方式
-  + 借助于 Vue 提供的 `computed` 【计算属性】 实现
-
-
-
-## 7. [Vue中的动画](https://cn.vuejs.org/v2/guide/transitions.html)
-> 为什么要有动画：
-
-### 7.1 使用过渡类名
-
-### 7.2 [使用第三方 CSS 动画库](https://cn.vuejs.org/v2/guide/transitions.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%B8%A1%E7%9A%84%E7%B1%BB%E5%90%8D)
-
-### 7.3 [v-for 的列表过渡](https://cn.vuejs.org/v2/guide/transitions.html#%E5%88%97%E8%A1%A8%E8%BF%87%E6%B8%A1)
-
-
-### 7.4 列表的排序过渡
-`<transition-group>` 组件还有一个特殊之处。不仅可以进入和离开动画，**还可以改变定位**。要使用这个新功能只需了解新增的 `v-move` 特性，**它会在元素的改变定位的过程中应用**。
-+ `v-move` 和 `v-leave-active` 结合使用，能够让列表的过渡更加平缓柔和：
-```
-.v-move{
-  transition: all 0.8s ease;
-}
-.v-leave-active{
-  position: absolute;
-}
 ```
 
 

@@ -4,6 +4,71 @@
 对象.不存在的属性或者方法 === undefined  对象.不存在的方法() === 报错
 ```
 
+## 对象的几个方法
+
+以下都基于这个案例
+
+```js
+function Person(name) {this.name = name}
+let per1 = new Person('gt')
+```
+
+Object.prototype.isPrototypeOf()
+
+判断调用者是否在被调用者的原型链上, 返回布尔值
+
+```js
+Person.prototype.isPrototypeOf(per1) // true
+```
+
+Object.prototype.hasOwnProperty()
+
+判断属性/方法是否是调用者的自己本身的; 原型上继承下来的返回false; 返回布尔值
+
+```js
+per1.hasOwnProperty('name') // true
+per1.hasOwnProperty('toString') // false
+```
+
+Object.prototype.propertyIsEnumerable()
+
+判断属性/方法是否是可枚举的; 返回布尔值
+
+如果判断一个调用者未定义的属性/方法也会返回false
+
+```js
+Person.prototype.propertyIsEnumerable('constructor') // false
+Person.prototype.propertyIsEnumerable('name') // false
+```
+
+静态方法
+
+Object.getPrototypeOf()
+
+获取被调用者的原型对象
+
+```js
+Object.getPrototypeOf(per1) === Person.prototype // true
+```
+
+Object.keys()
+
+获得被调用者的所有**自身的属性**，并仅是可枚举的. 返回值为数组. 与for-in功能一致
+
+```js
+Object.keys(per1) // ["name"]
+```
+
+Object.getOwnPropertyNames()
+
+获得被调用者的所有**自身的属性**，无论是否可枚举. 返回值为数组.
+
+```js
+Object.getOwnPropertyNames(Person.prototype) // ["constructor"]
+```
+
+不可枚举的属性有(Object.prototype上所有的属性都是不可枚举的):  toLocaleString()、toString()、valueOf()、hasOwnProperty()、isPrototypeOf()、propertyIsEnumerable()、constructor
+
 ### 环境
 
 ```

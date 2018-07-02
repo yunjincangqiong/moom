@@ -51,6 +51,76 @@ inline-block 会渲染元素标签之间的空白节点 解决办法为 取消�
 
 
 
+##在switch语句中使用范围值
+
+```js
+function name(num) {
+  let test;
+  // 将switch后面括号里面的值设置为 true, case中就可以使用范围表达式了
+  switch (true) {
+    case num == 0:
+      test = 1
+      break
+      case num > 0 || num < 6:
+      test = 2
+      break
+      default:
+      test = 3
+  }
+  console.log(test)
+}
+```
+
+
+
+## 使用对象结构赋值来获取数组中想要的值
+
+```js
+const arr = 'a,b,c,d'
+// 将想获取的数组中的值得索引写到对象中, 起一个别名即可获取
+const {0: v1, 3: v2} = arr.split(',')
+```
+
+
+
+##创建一个 pure Object(纯净的对象)
+
+pure Object: 它不继承对象的任何方法, 也就是说它身上没有挂载任何属性和方法
+
+```js
+const pureObject = Object.create(null)
+console.log(pureObject.toString) // undefined
+```
+
+
+
+## 使用对象解构来模拟函数的可选配置项(命名参数)
+
+```js
+// 此处使用双重函数默认值写法
+// 1. 如果没有传参数默认就为空对象
+// 2. 如果对象没有传 name 和 age 属性就为默认值
+function fn({name = 'gt', age = '12'} = {}) {
+  console.log(name)
+  console.log(age)
+}
+```
+
+
+
+## 将多维数组整合成单个数组
+
+```js
+function flattenArray(arr) {
+  const flattenArr = [].concat(...arr)
+  return flattenArr.some(v => Array.isArray(v)) ? flattenArray(flattenArr) : flattenArr
+}
+```
+
+
+
+
+
 ## 强制get请求不使用缓存
 
 ```
@@ -167,6 +237,33 @@ eg: <i class="diy_icon .diy_icon_phone"></i>
 ## 单线程与异步与js事件机制
 
 [参考链接](http://www.cnblogs.com/woodyblog/p/6061671.html)
+
+
+
+##实现.5px的细线
+
+### 渐变
+
+将1px高的伪元素的背景一半有颜色一半透明即可
+
+```css
+height: 1px;
+background: linear-gradient(#000 50%, transparent 50%);
+```
+
+### 缩放
+
+实现上有些问题: mac(n屏)上显示为颜色变浅了一半, 高度没有变化
+
+```css
+/* 1 */
+height: 1px;
+background-color: #000;
+/* 2 */
+border-top: 1px solid #000;
+
+transform: scaleY(.5)
+```
 
 
 

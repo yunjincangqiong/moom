@@ -163,6 +163,43 @@ aim.addLooker(a.render)
    .releave('test');
 ```
 
+### 简易版
+
+```js
+function myEvent() {
+  this.callbacks = {}
+}
+// 订阅事件函数
+myEvent.prototype.on = function(eveName, fn) {
+  if (!this.callbacks[eveName]) {
+    this.calllbacks[eveName] = []
+  } 
+  // say: [fn1, fn2]
+  this.calllbacks[eveName].push(fn)
+}
+// 发布事件函数
+myEvent.prototype.emit = function(eveName) {
+  if (!this.callbacks[eveName]) return
+  // 遍历触发事件
+  this.callbacks.forEach(fn => fn())
+}
+
+// == 演示 ==  
+let test = new myEvent()
+// 订阅事件
+test.on('say', () => {
+  console.log(1)
+})
+// 订阅事件
+test.on('say', () => {
+  console.log(2)
+})
+// 发布事件
+test.emit('say')
+```
+
+
+
 ## 一行评级组件
 
 ```javascript
@@ -180,20 +217,7 @@ getStars(4);
 getStars(5);
 ```
 
-## 间隔时间之内不能触发同一事件
 
-```javascript
-var timer;
-btn.onclick = function () {
-  if (timer) {
-    return;
-  }
-  console.log(1);
-  timer = setTimeout(function () {
-    timer = null;
-  }, 2000);
-}
-```
 
 ## 数组去重(filter)
 

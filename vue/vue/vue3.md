@@ -199,7 +199,7 @@ n1 n2 n4 1 2 n3 666
          // 解构赋值取出需要的数据并起别名, axios 的 get, post 方法默认返回一个 Promise 实例
          const { data: res } = await this._ajax.get('/api/getlunbo')
          console.log(res)
-       },
+       }
      }
    })
    ```

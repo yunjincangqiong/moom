@@ -1,5 +1,15 @@
 # css
 
+##position
+
+### 绝对定位
+
+未指定 left/top/right/bottom 的 absolute元素，其在所处层级中的定位点就是正常文档流中该元素的定位点
+
+如果同时设置left和right会水平拉伸，同时设置top和bottom会垂直拉伸
+
+隐藏一个元素(不扰乱布局, 获取不到焦点): absolute + left: -3000px; absolute + visibility: hidden
+
 ## 权重问题
 
 + 正常情况下或者权重相同时, 后面的样式权重高

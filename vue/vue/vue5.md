@@ -203,8 +203,6 @@ yarn                   # 安装所有的包
 
    ​
 
-### 
-
 ## 父组件向子组件传值
 
 ### 父组件向子组件传递普通数据
@@ -266,7 +264,7 @@ yarn                   # 安装所有的包
 2. 子组件中，可以直接通过 `this.$emit('func1')` 来调用父组件传递过来的方法；
 
 
-
+ 
 
 ## 子组件向父组件传值
 
@@ -309,6 +307,7 @@ eg: 子组件向父组件传值
         methods: {
             gett() {
                 // 此处进行子组件向父组件进行传值
+                // 子组件中的 data 上的 test 属性
                 this.testData = this.$refs.ss.test
                 // 此处调用子组件的方法
                 this.$refs.ss.eat()
@@ -363,17 +362,17 @@ eg: 子组件向父组件传值
    ```js
    import bus from './bus.js'
    export default {
-       data(){
-         return {
-           msg: 'abcd'
-         }
-       },
-       methods: {
-         sendMsg(){
-           // 触发 绑定的 事件，并向外传递参数
-           bus.$emit('ooo', this.msg)
-         }
+     data(){
+       return {
+         msg: 'abcd'
        }
+     },
+     methods: {
+       sendMsg(){
+         // 触发 绑定的 事件，并向外传递参数
+         bus.$emit('ooo', this.msg)
+       }
+     }
    }
    ```
 
