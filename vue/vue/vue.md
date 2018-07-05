@@ -88,7 +88,7 @@
 - methods
   - 作用：一般用来定义事件处理函数
   - 虽然我们可以把方法写到 data 中，但是在 Vue 中更推荐把所有方法都写到 methods 属性中, 这样做更合理，数据和方法分开，分门别类
-  - 不允许具有和 data 中重名的成员,否则会报错
+  - 不允许具有和 data 中重名的成员, 否则会报错
 
 
 
@@ -433,7 +433,7 @@ const vm = new Vue({
 
   + 实现原理： 通过 控制元素的 display:none 属性，实现 元素的 显示 和 隐藏 
 
-+ v-if v-else 连用
++ v-if v-else 连用 v-else-if
 
   ```html
   <!-- flag 为 true 显示上面的元素 -->

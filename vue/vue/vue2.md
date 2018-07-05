@@ -1,4 +1,4 @@
-# Vue.js - Day2
+# Vue.js - 2
 
 
 ## Vue调试工具`vue-devtools`的安装和使用
@@ -83,7 +83,7 @@ new Vue({
 
 ```js
 // 从第二参数开始为可选参数, 用于接收传入的额外参数
-Vue.filter('过滤器的名称', (管道符左边的数据, 额外传入的参数) { 
+Vue.filter('过滤器的名称', (管道符左边的数据, 额外传入的参数) => { 
    // 数据处理代码
    // 最后必须 return 一个处理的结果
 })
@@ -183,7 +183,7 @@ var vm = new Vue({
 
 使用方法
 
-axios.get('请求的URL地址')
+axios.get('请求的URL地址', {params: 提交给服务器的对象数据})
 
 axios.post('请求的URL地址', { 提交给服务器的对象数据 })
 

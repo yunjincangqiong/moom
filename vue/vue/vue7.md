@@ -1,4 +1,4 @@
-# Vue.js - day7
+# Vue.js - 7
 
 
 ## 插槽

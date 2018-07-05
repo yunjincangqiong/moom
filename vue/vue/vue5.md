@@ -1,4 +1,4 @@
-# Vue5
+# Vue.js - 5
 
 ## yarn 常用命令
 
@@ -189,7 +189,9 @@ yarn                   # 安装所有的包
    ```vue
    <!-- Parent.vue -->
    <template>
-     <my-child></my-child>
+     <div>
+       <my-child></my-child>
+     </div>
    </template>
    <script>
      import Child from './Child.vue'
@@ -309,6 +311,8 @@ eg: 子组件向父组件传值
                 // 此处进行子组件向父组件进行传值
                 // 子组件中的 data 上的 test 属性
                 this.testData = this.$refs.ss.test
+                //2. this.testData = this.$refs['ss'].test
+              
                 // 此处调用子组件的方法
                 this.$refs.ss.eat()
             }

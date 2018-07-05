@@ -1,4 +1,4 @@
-# Vue.js - Day3
+# Vue.js - 3
 
 
 ## Promise

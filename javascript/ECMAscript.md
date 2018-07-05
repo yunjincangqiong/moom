@@ -69,6 +69,48 @@ Object.getOwnPropertyNames(Person.prototype) // ["constructor"]
 
 不可枚举的属性有(Object.prototype上所有的属性都是不可枚举的):  toLocaleString()、toString()、valueOf()、hasOwnProperty()、isPrototypeOf()、propertyIsEnumerable()、constructor
 
+### Object.defineProperty
+
+语法: Object.defineProperty(obj, prop, descriptor)
+
+参数说明:
+
+obj：必需。目标对象 
+prop：必需。需定义或修改的属性的名字
+descriptor：必需。目标属性所拥有的特性
+
+当设置或获取对象的某个属性的值的时候，第三个参数可以提供getter/setter方法。在特性中使用get/set属性来定义对应的方法。也就说将对象的某个属性托管给getter/setter方法, 别的方式(直接赋值)无法直接改变其值.
+
+get方法: 获取属性的时候触发的函数
+
+set方法: 设置属性的时候触发的函数, 唯一一个参数为设置的最新的值
+
+```js
+let obj = {
+  asd: 'zxczxc'
+}
+// 需要一个拷贝的存储值变量
+let value = 'zxczxc'
+Object.defineProperty(obj, 'asd', {
+  // 获取属性的时候触发的函数
+  get() {
+    return value
+  },
+  // 设置属性的时候触发的函数
+  set(newVal) {
+    value = newVal
+  }
+})
+// 获取属性值
+console.log(obj.asd)
+// 设置属性值
+obj.asd = '123'
+// 获取最新的属性值
+console.log(obj.asd)
+```
+
+**注意：get或set不是必须成对出现，任写其一就可以。如果不设置方法，则get和set的默认值为undefined**
+
 ### 环境
 
 ```

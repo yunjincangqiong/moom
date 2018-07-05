@@ -115,18 +115,17 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 
 `flex-flow`属性是`flex-direction`属性和`flex-wrap`属性的简写形式，默认值为`row nowrap`。
 
-> ```
+> ```css
 > .box {
 >   flex-flow: <flex-direction> || <flex-wrap>;
 > }
->
 > ```
 
 ### 3.4 justify-content属性  **
 
 `justify-content`属性定义了项目在主轴上的对齐方式。
 
-> ```
+> ```css
 > .box {
 >   justify-content: flex-start | flex-end | center | space-between | space-around;
 > }
@@ -247,7 +246,6 @@ Webkit 内核的浏览器，必须加上`-webkit`前缀。
 > .item {
 >   flex-basis: <length> | auto; /* default auto */
 > }
->
 > ```
 
 它可以设为跟`width`或`height`属性一样的值（比如350px），则项目将占据固定空间。
