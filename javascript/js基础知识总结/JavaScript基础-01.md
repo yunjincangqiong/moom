@@ -410,7 +410,7 @@ var result = (0.1*10 + 0.2*10)/10; // 0.3
   ```javascript
   console.log('hello' + ' world');  // 'helloworld'
   console.log('11' + 11);           // '1111'
-  console.log('male:' + true);      // 'maletrue'
+  console.log('male' + true);      // 'maletrue'
   console.log(11 + 11);             // 22
   ```
 
