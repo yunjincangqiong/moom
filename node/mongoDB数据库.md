@@ -98,7 +98,7 @@ exit
 - 官方指南：http://mongoosejs.com/docs/guide.html
 - 官方 API 文档：http://mongoosejs.com/docs/api.html
 
-####MongoDB 数据库的基本概念
+#### MongoDB 数据库的基本概念
 
 - 可以有多个数据库
 - 一个数据库中可以有多个集合（表）
@@ -190,7 +190,7 @@ module.exports = mongoose.model('User', userSchema)
 
 ```
 
-###数据限制
+### 数据限制
 
 ```
 type          数据类型  String Number Boolean

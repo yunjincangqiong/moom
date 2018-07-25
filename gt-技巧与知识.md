@@ -1,4 +1,4 @@
-##技巧
+## 技巧
 
 1. 数组数据存储 arr(arr.length) = num;    作为参考 官方建议 使用 arr.push()
 2. 数组名.toString();   一般使用在历史记录的本地存储中 将数组转换为逗号分隔的字符串
@@ -15,7 +15,7 @@
 
 
 
-##小知识点
+## 小知识点
 
 1. switch-case 中匹配值的时候是按照严格的模式进行匹配的(相当于使用的是===的方式);
 2. return 语句后面的代码不执行;   技巧使用在 if 语句中 有时可以不使用else
@@ -32,7 +32,7 @@
 
 
 
-##布局方面
+## 布局方面
 
 ```
 float 会使元素变为 blcok 元素
@@ -51,7 +51,7 @@ inline-block 会渲染元素标签之间的空白节点 解决办法为 取消�
 
 
 
-##在switch语句中使用范围值
+## 在switch语句中使用范围值
 
 ```js
 function name(num) {
@@ -83,7 +83,7 @@ const {0: v1, 3: v2} = arr.split(',')
 
 
 
-##创建一个 pure Object(纯净的对象)
+## 创建一个 pure Object(纯净的对象)
 
 pure Object: 它不继承对象的任何方法, 也就是说它身上没有挂载任何属性和方法
 
@@ -224,7 +224,7 @@ eg: <i class="diy_icon .diy_icon_phone"></i>
 
 
 
-##活动对象 与 变量对象
+## 活动对象 与 变量对象
 
 [参考链接](https://www.zhihu.com/question/36393048)
 
@@ -240,7 +240,7 @@ eg: <i class="diy_icon .diy_icon_phone"></i>
 
 
 
-##实现.5px的细线
+## 实现.5px的细线
 
 ### 渐变
 
@@ -267,7 +267,7 @@ transform: scaleY(.5)
 
 
 
-##webstorm快捷键
+## webstorm快捷键
 
 ```
 Alt + j                        选中下一个同样的词

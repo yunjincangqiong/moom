@@ -2,7 +2,7 @@
 
 **Node 指一个有效的 DOM 节点，是一个通称。**
 
-###获取元素
+### 获取元素
 
 ```html
 1、document/Node.getElementsByClassName('className') 通过类名获取元素，以伪数组形式存在。获取不到元素时返回空的伪数组
@@ -13,7 +13,7 @@ Node 方式获取元素内部实现有问题, 所以建议使用 document 方式
 3、document/Node.querySelectorAll('selector') 通过CSS选择器(css3)获取元素，以伪数组形式存在, 自带 foreach 方法(与数组的 foreach 方法类似)
 ```
 
-###类名操作
+### 类名操作
 
 ```html
 1、Node.classList.add('class')        添加class
@@ -22,7 +22,7 @@ Node 方式获取元素内部实现有问题, 所以建议使用 document 方式
 4、Node.classList.contains('class')   检测是否存在class
 ```
 
-###自定义属性
+### 自定义属性
 
 html5 之前自定义属性没有统一的书写规定, html5 之后规定了自定义属性的定义方式
 
@@ -35,9 +35,9 @@ html5 之前自定义属性没有统一的书写规定, html5 之后规定了自
 + 设置指定节点的指定自定义属性的值
   + Node.dataset['info'] = 'newmsg'
 
-##新增API
+## 新增API
 
-###全屏方法
+### 全屏方法
 
 > HTML5规范允许网页上任一元素全屏显示。
 
@@ -66,7 +66,7 @@ html5 之前自定义属性没有统一的书写规定, html5 之后规定了自
 
     Gecko内核浏览器： document.mozFullScreenElement   如火狐浏览器
 
-####对象检测技术
+#### 对象检测技术
 
 ```javascript
 // 当前对象如果没有此方法或者属性, 就会返回 undefined
@@ -111,7 +111,7 @@ html5 提供的视频播放元素
 | play()         | 开始播放音频/视频            |
 | pause()        | 暂停当前播放的音频/视频         |
 
-####属性
+#### 属性
 
 | 属性                  | 描述                                   |
 | ------------------- | ------------------------------------ |
@@ -145,7 +145,7 @@ html5 提供的视频播放元素
 | videoTracks         | 返回表示可用视频轨道的 VideoTrackList 对象        |
 | volume              | 设置或返回音频/视频的音量                        |
 
-####事件
+#### 事件
 
 | 事件             | 描述                     |
 | -------------- | ---------------------- |
@@ -172,7 +172,7 @@ html5 提供的视频播放元素
 | volumechange   | 当音量已更改时                |
 | waiting        | 当视频由于需要缓冲下一帧而停止        |
 
-###地理定位
+### 地理定位
 
 #### 简介
 
@@ -262,9 +262,9 @@ window.navigator.geolocation.watchPosition(successCallback, errorCallback)
 </html>
 ```
 
-###文件读取
+### 文件读取
 
-####简介
+#### 简介
 
 **不用借助于后端就可以读取用户选择的文件**
 
@@ -287,7 +287,7 @@ window.navigator.geolocation.watchPosition(successCallback, errorCallback)
   + 读取文本文件时为读取到的文本信息
   + 读取图片时为图片的 base64 格式的编码
 
-####事件
+#### 事件
 
 | 事件名称        | 含义                |
 | ----------- | ----------------- |
@@ -369,7 +369,7 @@ reader.onload = function () {
 </html>
 ```
 
-###本地存储
+### 本地存储
 
 本质：存储数据，以便在需要时获取。类似变量，只不过变量存储在内存中，本地存储存储在硬盘中。
 
@@ -391,7 +391,7 @@ reader.onload = function () {
   - 不同的浏览器存储的数据不能实现共享
   - 跟 cookie 相比, 本地存储中存储的数据不会随着请求而进行传输
 
-###历史管理
+### 历史管理
 
 单页面web应用简介: 顾名思义有且只有一个页面, 所有的内容和行为都发生在同一个页面中, 大都使用 ajax 动态获取页面然后渲染
 
@@ -410,7 +410,7 @@ reader.onload = function () {
 - window.onpopstate 事件，当点击历史记录前进按钮或后退按钮时触发 , 只有 window 才能触发此事件
   - 该事件的事件参数对象 e 有一个属性 state 可以获取当前历史记录上存贮的自定义数据 data, 根据 e.state 来判断前进和后退的历史记录, 做出相应的动作
 
-####样例:
+#### 样例:
 
 ```html
 <!DOCTYPE html>
@@ -474,7 +474,7 @@ reader.onload = function () {
 </html>
 ```
 
-###元素拖放
+### 元素拖放
 
 > HTML5中提供的用于拖拽元素的API。
 >
@@ -545,7 +545,7 @@ reader.onload = function () {
 </html>
 ```
 
-###离线应用
+### 离线应用
 
 > HTML5中我们可以轻松的构建一个离线（无网络状态）应用，只需要创建一个cache manifest文件。
 
@@ -571,16 +571,12 @@ reader.onload = function () {
 - 其它
 
   - CACHE: 可以省略，这种情况下将需要缓存的资源写在CACHE MANIFEST
-
   - 可以指定多个CACHE: NETWORK: FALLBACK:，无顺序限制
-
-  - # 井号表示单行注释，
-
-  - 只有当demo.appcache文件内容发生改变时或者手动清除缓存后，才会重新缓存。
-
+  - `#`井号表示单行注释
+  - 只有当demo.appcache文件内容发生改变时或者手动清除缓存后，才会重新缓存
   - chrome 可以通过chrome://appcache-internals/工具和离线（offline）模式来调试管理应用缓存
 
-####样例文件 demo.appcache
+#### 样例文件 demo.appcache
 
 ```html
 CACHE MANIFEST
@@ -602,7 +598,7 @@ FALLBACK:
 css/online.css css/offline.css
 ```
 
-###网络状态
+### 网络状态
 
 - 通过 window.navigator.onLine 检测用户当前的网络状况，返回一个布尔值。true 为联网, false
 - **在页面首次加载时不会检查网络状况, 所以无法触发以下两个事件, 只有在页面运行时, 才会监听这两个事件**
@@ -637,7 +633,7 @@ chrome 的开发者模式下 (F12) Network 选项下有 Offline 选项 和 下�
 
 提供一个新的进程, 不会阻塞js主进程的运行, 一般将大量计算的任务丢入worker进程中运行, 然后再将结果返回给js主进程
 
-####样例
+#### 样例
 
 ```html
 <!-- index.html -->

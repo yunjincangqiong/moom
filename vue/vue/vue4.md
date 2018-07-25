@@ -297,7 +297,7 @@
 
 
 
-##在webpack中使用bootstrap
+## 在webpack中使用bootstrap
 
 由于其依赖 jQuery, 所以需要先引入并配置jQuery
 
@@ -323,7 +323,7 @@ import 'bootstrap/dist/js/bootstrap.js.css'
 
 
 
-##样例完整的 webpack.config.js 文件配置
+## 样例完整的 webpack.config.js 文件配置
 
 ```js
 const HtmlPlugin = require('html-webpack-plugin')
@@ -349,13 +349,13 @@ module.exports = {
 
 
 
-##ES6中的模块化语法
+## ES6中的模块化语法
 
 [es6模块化参考文献](http://es6.ruanyifeng.com/#docs/module)
 
 模块化命令可以出现在模块的任何位置，只要处于模块全局作用域(顶级作用域)就可以. 不能写在块级作用域中.
 
-###export
+### export
 
 `export`语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。
 

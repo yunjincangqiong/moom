@@ -1,4 +1,4 @@
-###简介
+### 简介
 
 数据库就是数据的仓库，用来按照特定的结构去组织和管理我们的数据，有了数据库我们就可以更加方便、便捷的操作（C / R / U / D）我们需要保存的数据。
 
@@ -144,7 +144,7 @@ list($name, $age) = mysqli_fetch_row($reader);
 - avg(字段名)
   - 获取当前字段的平均值
 
-####多表查询
+#### 多表查询
 
 ```mysql
 # posts users categories 三张表
@@ -152,9 +152,9 @@ list($name, $age) = mysqli_fetch_row($reader);
 SELECT p.*,u.nickname,c.name FROM posts AS p JOIN users AS u ON p.user_id=u.id JOIN categories AS c ON p.category_id=c.id';
 ```
 
-#php 操作 MySQL (mysqli)
+# php 操作 MySQL (mysqli)
 
-###关于错误显示与提示
+### 关于错误显示与提示
 
 ```php
 -- 一般使用在连接数据库语句后
@@ -169,7 +169,7 @@ mysqli_error( 连接资源 )                            -- 返回最近调用函
 mysqli_error_list( 连接资源 )                       -- 返回最近调用函数的错误列表。
 ```
 
-###连接与关闭数据库
+### 连接与关闭数据库
 
 **主机地址用IP地址比较快, 用域名得经过 CDN查询 比较慢**
 
@@ -183,7 +183,7 @@ mysqli_error_list( 连接资源 )                       -- 返回最近调用函
 + mysqli_set_charset( 连接资源, charset )       不常用
   + 设置或更改默认客户端字符集。
 
-###执行 sql 语句
+### 执行 sql 语句
 
 + mysqli_query( 连接变量, sql语句 )  
   + 执行sql语句。针对成功的 SELECT、SHOW、DESCRIBE 或 EXPLAIN 查询，将返回一个结果集(资源类型)。针对 DELETE UPDATE INSERT 成功的查询，将返回 TRUE。如果失败，则返回 FALSE。
@@ -202,12 +202,12 @@ mysqli_error_list( 连接资源 )                       -- 返回最近调用函
   + 从结果集中取得一行作为关联数组，或数字数组，或二者兼有
   + resulttype: MYSQLI_ASSOC,  MYSQLI_NUM,  MYSQLI_BOTH
 
-###释放结果集
+### 释放结果集
 
 + mysqli_free_result( 结果集 )
   + 释放结果集内存。
 
-##一段查询的完整的例子
+## 一段查询的完整的例子
 
 
 ```php

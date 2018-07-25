@@ -21,7 +21,7 @@ json基本的两种格式
 + JSON.stringify(json)
   + 用于编码 json 数据
 
-####js兼容老ie
+#### js兼容老ie
 
 ```html
 使用 json2.js 来兼容老ie, ie8以下版本没有定义 JSON 的问题, 在 head 中引入以下代码即可

@@ -166,7 +166,7 @@ var vm = new Vue({
    + destroyed：销毁之后，实例已经不工作了
 
 
-###4.3 Vue生命周期详解
+### 4.3 Vue生命周期详解
 
 ![Vue生命周期](./media/Vue生命周期.png)
 

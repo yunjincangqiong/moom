@@ -39,7 +39,7 @@ function fn() {
 
 
 
-###Promise.prototype.then()方法
+### Promise.prototype.then()方法
 
 该方法会等待`Promise`对象状态发生变化。如果变为`resolved`，就调用成功的回调函数，如果状态变为`rejected`，就调用失败的回调函数。
 
@@ -51,7 +51,7 @@ Promise实例.then((data) => {成功的操作}, (err) => {失败的操作})
 ```
 
 
-###Promise.prototype.catch()方法
+### Promise.prototype.catch()方法
 
 `Promise.prototype.catch`方法是`.then(null, 失败的回调函数)`的别名，用于指定发生错误时的回调函数。
 
@@ -68,9 +68,9 @@ Promise实例1
 
 
 
-###以下为封装一个读取文件的操作的对比
+### 以下为封装一个读取文件的操作的对比
 
-####没有 Promise 之前的最好的异步解决方案
+#### 没有 Promise 之前的最好的异步解决方案
 
 ```js
 // 加载 node 的 核心文件读取模块
@@ -99,7 +99,7 @@ fn('./test1.html', (err, data) => {
 })
 ```
 
-####Promise 的解决方案
+#### Promise 的解决方案
 
 ```js
 // 加载 node 的 核心文件读取模块
@@ -152,7 +152,7 @@ async () => {
 }
 ```
 
-###执行顺序问题
+### 执行顺序问题
 
 ```js
 async function test() {
@@ -583,7 +583,7 @@ methods: {
 
 
 
-###过渡列表完整实例代码
+### 过渡列表完整实例代码
 
 ```html
 <!DOCTYPE html>

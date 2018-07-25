@@ -340,7 +340,7 @@ req.session = null
 
 提示：默认 Session 数据是内存存储的，服务器一旦重启就会丢失，真正的生产环境会把 Session 进行持久化存储。
 
-###express中间件
+### express中间件
 
 ![6eb222dcc5](./media/middleware.jpg)
 
@@ -348,7 +348,7 @@ req.session = null
 
 - 同一个请求所经过的中间件都是同一个请求对象和响应对象
 
-####中间件原理 
+#### 中间件原理 
 
 ```
 中间件：处理请求的，本质就是个函数
@@ -377,7 +377,7 @@ req.session = null
 然后就会被全局错误处理中间件匹配到并处理之
 ```
 
-####应用程序级别中间件
+#### 应用程序级别中间件
 
 万能匹配（不关心任何请求路径和请求方法）：
 
@@ -401,7 +401,7 @@ app.use('/a', function (req, res, next) {
 })
 ```
 
-####路由级别中间件
+#### 路由级别中间件
 
 路由功能实现
 
@@ -437,7 +437,7 @@ app.delete('/user', function (req, res) {
 })
 ```
 
-####404处理中间件
+#### 404处理中间件
 
 ```
 放在所有业务路由处理之后,用于处理那些没有被处理的url
@@ -447,7 +447,7 @@ app.use(function (req, res, next) {
 })
 ```
 
-####错误处理中间件(注意特征为4个参数缺一不可)
+#### 错误处理中间件(注意特征为4个参数缺一不可)
 
 ```javascript
 app.use(function (err, req, res, next) {
@@ -456,13 +456,13 @@ app.use(function (err, req, res, next) {
 })
 ```
 
-####内置中间件
+#### 内置中间件
 
 - [express.static](http://expressjs.com/en/4x/api.html#express.static) serves static assets such as HTML files, images, and so on.
 - [express.json](http://expressjs.com/en/4x/api.html#express.json) parses incoming requests with JSON payloads. **NOTE: Available with Express 4.16.0+**
 - [express.urlencoded](http://expressjs.com/en/4x/api.html#express.urlencoded) parses incoming requests with URL-encoded payloads. **NOTE: Available with Express 4.16.0+**
 
-####第三方中间件
+#### 第三方中间件
 
 > http://expressjs.com/en/resources/middleware.html
 

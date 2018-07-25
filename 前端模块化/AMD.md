@@ -16,7 +16,7 @@ RequireJS以一个相对于[baseUrl](http://makingmobile.org/docs/tools/requirej
 <script data-main="scripts/main.js" src="scripts/require.js"></script>
 ```
 
-###声明模块
+### 声明模块
 
 声明模块使用 define 关键字声明模块
 

@@ -89,7 +89,7 @@ xhr.addEventListener('readystatechange', function () {
 
 + **xhr1.0 版本不能进行文件上传** 使用 flash 技术实现
 
-###实例: 单文件上传实现本地图片预览
+### 实例: 单文件上传实现本地图片预览
 
 文件目录结构:   index.html     upfile.php      文件夹 uploads
 

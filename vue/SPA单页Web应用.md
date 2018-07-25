@@ -23,7 +23,7 @@
 
 ### 简单模拟单页面应用程序的效果
 
-####hashchange事件
+#### hashchange事件
 
 - `hash锚点 `
 
