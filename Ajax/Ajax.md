@@ -283,7 +283,7 @@ $.post('post.php', {name: 'xiaohong', age: 18}, function (data) {
 });
 ```
 
-##模拟$.ajax请求封装
+## 模拟$.ajax请求封装
 
 ```javascript
 $ = {
@@ -358,11 +358,11 @@ $ = {
 
 涉及多地址设置请移步至 [相关软件的安装.md](./相关软件的安装.md)
 
-###浏览器同源策略
+### 浏览器同源策略
 
 同源策略是浏览器的一种安全策略，两个不同源的网址请求数据时浏览器会阻止其发生并报错.
 
-####同源
+#### 同源
 
 所谓同源是指域名(1,2级域名都相同)，协议，端口(默认为80端口)完全相同，只有同源的地址才可以相互通过 AJAX 的方式请求。
 
@@ -386,11 +386,11 @@ $ = {
 
 以下为常用的解决方案
 
-####jsonp(非官方的解决方案)
+#### jsonp(非官方的解决方案)
 
 名词解释:  jsonp( json with padding ) 填充式json / 参数式json
 
-#####原生jsonp
+##### 原生jsonp
 
 原理：
 
@@ -440,7 +440,7 @@ echo $fnName.'('. json_encode($arr) .');';
 
 原因: 要使用script 标签的 src 跨域能力, src 请求只能为 get 请求
 
-#####jQuery -- jsonp
+##### jQuery -- jsonp
 
 ```javascript
 $.ajax({
