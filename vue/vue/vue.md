@@ -185,12 +185,12 @@
 ## Vue指令之 `v-bind:` 属性绑定
 
 1. 基本使用
-   + 为 html 属性节点单向动态绑定数据，例如：
+   + 为 html 属性节点单向动态绑定数据, 例如：
       ```vue
       <button v-bind:title="titleStr">按钮</button>
       ```
 2. 简写形式
-   + 可以简写成 `:`，例如：
+   + 可以简写成 `:`, 例如：
       ```vue
       <button :title="titleStr">按钮</button>
       ```
@@ -200,20 +200,18 @@
 
 ## Vue指令之 `v-on:` 事件绑定
 
-1. 基本使用：
-  为 HTML 元素，绑定 事件处理函数，事件名与原生js一致, 例如：
+1. 基本使用: 为HTML元素，绑定事件处理函数，事件名与原生js一致, 例如：
     ```vue
-  <!-- 如果没有参数, 可以直接写函数名 -->
-  <input type="button" value="按钮" v-on:click="事件处理函数名" />
+    <!-- 如果函数没有参数, 可以省略小括号 -->
+    <input type="button" value="按钮" v-on:click="事件处理函数名" />
     ```
 2. 绑定事件处理函数并传参：
     ```vue
     <input type="button" value="按钮" v-on:click="show(123)" />
     ```
-3. 简写形式：
-  可以简写成 `@`，例如：
+3. 简写形式: 可以简写成 `@`，例如：
    ```vue
-  <input type="button" value="按钮" @click="事件处理函数名" />
+   <input type="button" value="按钮" @click="事件处理函数名" />
    ```
 
 
