@@ -286,7 +286,7 @@ const vm = new Vue({
 
    ```html
    <div id="app">
-     <p v-for="(val, key) in obj">属性名为:{{key}} ---- 属性值为:{{val}}</p>
+     <p v-for="(val, key, index) in obj">属性名为:{{key}} ---- 属性值为:{{val}}</p>
    </div>
    <script>
      var vm = new Vue({
